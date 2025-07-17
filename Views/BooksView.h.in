@@ -1,0 +1,17 @@
+#ifndef BOOKS_VIEW_HPP
+#define BOOKS_VIEW_HPP
+#include <Controllers/BooksController.hpp>
+class BooksView
+{
+    private:
+        BooksController* booksController; // Pointer to BooksController instance
+        /* data */
+    public:
+        BooksView(BooksController& booksController);
+        void ShowBooks();
+        ~BooksView();
+};
+
+
+
+#endif // BOOKS_VIEW_HPP

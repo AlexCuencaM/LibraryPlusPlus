@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(LibrarylusPlus)
 # add_executable(LibrarylusPlus hello_world.cxx Bye.cxx Hello.cxx)
-add_executable(LibrarylusPlus Entities/Book.cxx Services/BookService.cxx main.cxx)
+add_executable(LibrarylusPlus Entities/Book.cxx Services/BookService.cxx Controllers/BooksController.cxx Views/BooksView.cxx Views/MenuView.cxx MenuBuilder.cxx main.cxx)
 target_include_directories(LibrarylusPlus PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
@@ -10,8 +10,11 @@ configure_file(DataStructure/Queue.h.in DataStructure/Queue.hpp)
 configure_file(DataStructure/ModernQueue.h.in DataStructure/ModernQueue.hpp)
 configure_file(DataStructure/LinkedList.h.in DataStructure/LinkedList.hpp)
 configure_file(DataStructure/ModernLinkedList.h.in DataStructure/ModernLinkedList.hpp)
+configure_file(Controllers/BooksController.h.in Controllers/BooksController.hpp)
+configure_file(Views/BooksView.h.in Views/BooksView.hpp)
 configure_file(Services/BookService.h.in Services/BookService.hpp)
-
+configure_file(Views/MenuView.h.in Views/MenuView.hpp)
+configure_file(MenuBuilder.h.in MenuBuilder.hpp)
 # configure_file(Bye.h.in Bye.h)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

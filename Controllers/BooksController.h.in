@@ -1,0 +1,18 @@
+#ifndef BOOKS_CONTROLLER_HPP
+#define BOOKS_CONTROLLER_HPP
+#include <Services/BookService.hpp>
+class BooksController
+{
+    private:
+        BookService* bookService; // Pointer to BookService instance
+
+    public:
+        BooksController(BookService& bookService);
+        ~BooksController();
+        void AddBook();
+        void PrintBooks();
+        // const std::string& author, const std::string& title
+        void SearchBook();
+};
+
+#endif // BOOKS_CONTROLLER_HPP

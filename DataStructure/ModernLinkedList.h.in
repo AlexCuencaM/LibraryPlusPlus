@@ -1,6 +1,7 @@
 #ifndef MODERN_LINKED_LIST_H
 #define MODERN_LINKED_LIST_H
 #include <algorithm>
+#include <iostream>
 #include <list>
 #include <DataStructure/LinkedList.hpp>
 using namespace std;

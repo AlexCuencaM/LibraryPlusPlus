@@ -1,0 +1,17 @@
+#ifndef MENU_VIEW_H
+#define MENU_VIEW_H
+#include <Controllers/BooksController.hpp>
+class MenuView
+{
+private:
+    BooksController* booksController; // Pointer to BooksController instance
+    /* data */
+public:
+    MenuView(BooksController& booksController);
+    void ShowMenu();
+    ~MenuView();
+    int ChooseOption();
+    bool SelectView(int option);
+};
+
+#endif
