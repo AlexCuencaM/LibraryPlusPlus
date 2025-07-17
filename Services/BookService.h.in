@@ -6,9 +6,9 @@ class BookService
 {
     private:
         /* data */
-        ModernLinkedList<Book> bookList; // Assuming LinkedList is a template class defined in DataStructure/LinkedList.h
+        LinkedList<Book>* bookList; // Assuming LinkedList is a template class defined in DataStructure/LinkedList.h
     public:
-        BookService(ModernLinkedList<Book> bookList);
+        BookService(LinkedList<Book> &bookList);
         ~BookService();
         void AddBook(const Book& book);
         void PrintBooks();

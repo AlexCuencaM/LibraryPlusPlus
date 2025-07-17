@@ -1,5 +1,6 @@
 #ifndef MODERN_LINKED_LIST_H
 #define MODERN_LINKED_LIST_H
+#include <algorithm>
 #include <list>
 #include <DataStructure/LinkedList.hpp>
 using namespace std;
@@ -8,8 +9,9 @@ class ModernLinkedList: public LinkedList<Data> {
     public:
         list<Data> dataList;
         // Add methods and members as needed
-        void InsertAtHead(Data data);
-        void Print();
+        void InsertAtHead(Data data) override;
+        void Print() override;
+        void Search(Data data) override;
 };
 template <typename Data>
 void ModernLinkedList<Data>::InsertAtHead(Data data)
@@ -26,6 +28,18 @@ void ModernLinkedList<Data>::Print()
     }
     cout << endl;
 }
+template <typename Data>
+void ModernLinkedList<Data>::Search(Data data)
+{
+    auto it = find(dataList.begin(), dataList.end(), data);
+    if (it != dataList.end()) {
+        cout << "Found: " << *it << endl;
+    } else {
+        cout << "Not found: " << data << endl;
+    }
+}
 #endif
+
+
 
 

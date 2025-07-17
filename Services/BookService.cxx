@@ -1,10 +1,10 @@
 #include <iostream>
 #include <Services/BookService.hpp>
-#include <DataStructure/ModernLinkedList.hpp>
+#include <DataStructure/LinkedList.hpp>
 using namespace std;
-BookService::BookService(ModernLinkedList<Book> bookList)
+BookService::BookService(LinkedList<Book>& bookList)
 {
-    this->bookList = bookList; // Initialize the book list
+    this->bookList = &bookList; // Initialize the book list
 }
 
 BookService::~BookService()
@@ -15,11 +15,11 @@ BookService::~BookService()
 void BookService::AddBook(const Book &book)
 {
     cout << "Book added: " << book.Title << " by " << book.Author << endl;
-    bookList.InsertAtHead(book); // Insert the book at the head of the list
+    bookList->InsertAtHead(book); // Insert the book at the head of the list
 }
 
 void BookService::PrintBooks()
 {
     cout << "Printing all books in the list:" << endl;
-    bookList.Print(); // Print all books in the list
+    bookList->Print(); // Print all books in the list
 }

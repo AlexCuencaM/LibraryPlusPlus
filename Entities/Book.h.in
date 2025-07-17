@@ -12,6 +12,7 @@ class Book
         int Pages;
         string ISBN;
         friend ostream& operator<<(ostream& os, const Book& book);
+        bool operator==(const Book& other) const;
 };
 
 #endif

@@ -7,3 +7,7 @@ ostream &operator<<(ostream &os, const Book &book)
        << ", Pages: " << book.Pages << ", ISBN: " << book.ISBN;
     return os;
 }
+bool Book::operator==(const Book& other) const {
+        return Title == other.Title &&
+               Author == other.Author; 
+};

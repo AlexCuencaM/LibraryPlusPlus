@@ -6,6 +6,7 @@ using namespace std;
 int main(int argc, char* argv[]) 
 {
     ModernLinkedList<Book> bookList;
+    LinkedList<Book>* linkedList = &bookList; 
     BookService bookService(bookList);
     Book book1 = {"The Great Gatsby", "F. Scott Fitzgerald", "Scribner", 1925, 180, "9780743273565"};
     Book book2 = {"1984", "George Orwell", "Secker & Warburg", 1949, 328, "9780451524935"};
