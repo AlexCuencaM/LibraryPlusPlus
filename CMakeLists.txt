@@ -6,6 +6,8 @@ target_include_directories(LibrarylusPlus PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
 configure_file(Entities/Book.h.in Entities/Book.hpp)
+configure_file(DataStructure/Queue.h.in DataStructure/Queue.hpp)
+configure_file(DataStructure/ModernQueue.h.in DataStructure/ModernQueue.hpp)
 configure_file(DataStructure/LinkedList.h.in DataStructure/LinkedList.hpp)
 configure_file(DataStructure/ModernLinkedList.h.in DataStructure/ModernLinkedList.hpp)
 configure_file(Services/BookService.h.in Services/BookService.hpp)
