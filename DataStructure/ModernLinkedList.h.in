@@ -1,0 +1,16 @@
+#ifndef MODERN_LINKED_LIST_H
+#define MODERN_LINKED_LIST_H
+#include <list>
+using namespace std;
+template <typename Data>
+class ModernLinkedList: public LinkedList<Data> {
+    public:
+        list<Data> dataList;
+        // Add methods and members as needed
+        void InsertAtHead(Data data);
+        void Print();
+        // Other methods can be added here
+};
+#endif
+
+

@@ -1,0 +1,17 @@
+#ifndef BOOK_SERVICE_H
+#define BOOK_SERVICE_H
+#include <Entities/Book.h>
+#include <DataStructure/LinkedList.h>
+class BookService
+{
+    private:
+        /* data */
+        LinkedList<Book>* bookList; // Assuming LinkedList is a template class defined in DataStructure/LinkedList.h
+    public:
+        BookService(LinkedList<Book>* bookList);
+        ~BookService();
+        void AddBook(const Book& book);
+        void PrintBooks() const;
+        // Other service methods can be added here
+};
+#endif
