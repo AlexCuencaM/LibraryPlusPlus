@@ -11,6 +11,7 @@ class Book
         int Year;
         int Pages;
         string ISBN;
+        friend ostream& operator<<(ostream& os, const Book& book);
 };
 
 #endif

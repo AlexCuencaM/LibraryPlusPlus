@@ -1,6 +1,7 @@
 #ifndef MODERN_LINKED_LIST_H
 #define MODERN_LINKED_LIST_H
 #include <list>
+#include <DataStructure/LinkedList.hpp>
 using namespace std;
 template <typename Data>
 class ModernLinkedList: public LinkedList<Data> {
@@ -9,8 +10,22 @@ class ModernLinkedList: public LinkedList<Data> {
         // Add methods and members as needed
         void InsertAtHead(Data data);
         void Print();
-        // Other methods can be added here
 };
+template <typename Data>
+void ModernLinkedList<Data>::InsertAtHead(Data data)
+{
+    dataList.push_front(data);
+    cout << "Inserted at head: " << endl << data << endl << endl; 
+}
+
+template <typename Data>
+void ModernLinkedList<Data>::Print()
+{
+    for (const auto& item : dataList) {
+        cout << item << " " << endl << endl; // Assuming Data has an overloaded operator<<
+    }
+    cout << endl;
+}
 #endif
 
 
