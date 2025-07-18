@@ -7,7 +7,8 @@ int main(int argc, char* argv[])
 {
     ModernLinkedList<Book> bookList;
     BookService bookService(bookList);
-    BooksController bookController(bookService);
+    BooksView booksView(bookService);
+    BooksController bookController(bookService, booksView);
     MenuBuilder menuBuilder(bookController);
     menuBuilder.BuildMenu();
     cout << "Exiting the program." << endl;

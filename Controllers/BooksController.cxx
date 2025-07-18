@@ -4,34 +4,40 @@
 #include <Entities/Book.hpp>
 #include <iostream>
 #include <Controllers/BooksController.hpp>
+#include <Views/BooksView.hpp>
 using namespace std;
-BooksController::BooksController(BookService& bookService)
+BooksController::BooksController(BookService& bookService, BooksView& booksView)
 {
     // Initialize the book service
     this->bookService = &bookService; // Assuming bookService is a reference to an existing BookService instance
+    this->booksView = &booksView; // Assuming booksView is a reference to an existing BooksView instance
 }
 BooksController::~BooksController()
 {
 }
-
 void BooksController::AddBook()
 {
-    Book book1 = {"The Great Gatsby", "F. Scott Fitzgerald", "Scribner", 1925, 180, "9780743273565"};
-    Book book2 = {"1984", "George Orwell", "Secker & Warburg", 1949, 328, "9780451524935"};
-    if (!this->bookService) {
-        cout << "Book service is not initialized." << endl;
-        return;
+    Book newBook;
+    // Assuming BooksView has a method to insert a book
+    if (booksView) {
+        booksView->InsertBook(newBook); // Call the InsertBook method from BooksView
+        bookService->AddBook(newBook); // Add the book to the service
+    } else {
+        cout << "BooksView is not initialized." << endl;
     }
-    cout << "Adding a new book..." << endl;
-    this->bookService->AddBook(book1);
-    this->bookService->AddBook(book2);
+    // Book book1 = {"The Great Gatsby", "F. Scott Fitzgerald", "Scribner", 1925, 180, "9780743273565"};
+    // Book book2 = {"1984", "George Orwell", "Secker & Warburg", 1949, 328, "9780451524935"};
+    // cout << "Adding a new book..." << endl;
+    // this->bookService->AddBook(book1);
+    // this->bookService->AddBook(book2);
 }
+
 void BooksController::PrintBooks()
 {
-    if (bookService) {
-        bookService->PrintBooks(); // Call the PrintBooks method from BookService
+    if (booksView) {
+        booksView->ShowBooks(); // Call the ShowBooks method from BooksView
     } else {
-        cout << "Book service is not initialized." << endl;
+        cout << "BooksView is not initialized." << endl;
     }
 }
 void BooksController::SearchBook()

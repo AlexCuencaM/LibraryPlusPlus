@@ -1,14 +1,15 @@
 #ifndef BOOKS_VIEW_HPP
 #define BOOKS_VIEW_HPP
-#include <Controllers/BooksController.hpp>
+#include <Services/BookService.hpp>
 class BooksView
 {
     private:
-        BooksController* booksController; // Pointer to BooksController instance
         /* data */
+        BookService* bookService; // Pointer to BookService instance
     public:
-        BooksView(BooksController& booksController);
+        BooksView(BookService& bookService);
         void ShowBooks();
+        void InsertBook(Book &newBook);
         ~BooksView();
 };
 

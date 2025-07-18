@@ -57,6 +57,7 @@ bool MenuView::SelectView(int option)
             return false; // Exit the menu
         default:
             cout << "Invalid option. Please try again." << endl;
+            return false; // Continue showing the menu
     }
     return true; // Continue showing the menu
 }
