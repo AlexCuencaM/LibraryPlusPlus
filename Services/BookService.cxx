@@ -1,6 +1,7 @@
 #include <iostream>
 #include <Services/BookService.hpp>
 #include <DataStructure/LinkedList.hpp>
+#include <vector>
 using namespace std;
 BookService::BookService(LinkedList<Book>& bookList)
 {
@@ -19,7 +20,19 @@ void BookService::AddBook(const Book &book)
 }
 
 void BookService::PrintBooks()
-{
-    cout << "Printing all books in the list:" << endl;
+{   
     bookList->Print(); // Print all books in the list
+}
+//linear search
+Book* BookService::SearchBook(const std::string title, const std::string author) const{
+    // bookList
+    vector<Book> allBooks = bookList->GetAll(); // Get all books from the list
+    for (const auto& book : allBooks) {
+        cout << "Checking: '" << book.Title << "' by '" << author << "'"<< endl; // Debugging output
+        if (book.Title == title || book.Author == author) {
+            cout << "Book found: " << book << endl; // Debugging output
+            return new Book(book); // Return a new Book object if found
+        }
+    }
+    return nullptr; // Return nullptr if no book is found
 }

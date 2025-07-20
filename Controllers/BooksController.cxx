@@ -25,11 +25,6 @@ void BooksController::AddBook()
     } else {
         cout << "BooksView is not initialized." << endl;
     }
-    // Book book1 = {"The Great Gatsby", "F. Scott Fitzgerald", "Scribner", 1925, 180, "9780743273565"};
-    // Book book2 = {"1984", "George Orwell", "Secker & Warburg", 1949, 328, "9780451524935"};
-    // cout << "Adding a new book..." << endl;
-    // this->bookService->AddBook(book1);
-    // this->bookService->AddBook(book2);
 }
 
 void BooksController::PrintBooks()
@@ -42,4 +37,5 @@ void BooksController::PrintBooks()
 }
 void BooksController::SearchBook()
 {
+    booksView->ShowResultsBySearch();
 }

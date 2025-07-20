@@ -41,7 +41,7 @@ bool MenuView::SelectView(int option)
             booksController->PrintBooks();
             break;
         case 3:
-            // Implement search functionality
+            booksController->SearchBook();
             break;
         case 4:
             // Implement user creation functionality

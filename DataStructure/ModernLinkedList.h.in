@@ -13,7 +13,19 @@ class ModernLinkedList: public LinkedList<Data> {
         void InsertAtHead(Data data) override;
         void Print() override;
         void Search(Data data) override;
+        vector<Data> GetAll() override;
 };
+
+template <typename Data> 
+vector<Data> ModernLinkedList<Data>::GetAll() {
+    vector<Data> allData;
+    allData.reserve(dataList.size());
+    for (const auto& item : dataList) {
+        allData.push_back(item);
+    }
+    return allData;
+}
+
 template <typename Data>
 void ModernLinkedList<Data>::InsertAtHead(Data data)
 {
@@ -40,7 +52,4 @@ void ModernLinkedList<Data>::Search(Data data)
     }
 }
 #endif
-
-
-
 

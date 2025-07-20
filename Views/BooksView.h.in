@@ -6,10 +6,12 @@ class BooksView
     private:
         /* data */
         BookService* bookService; // Pointer to BookService instance
+        void SearchBook(std::string& title, std::string& author);
     public:
         BooksView(BookService& bookService);
         void ShowBooks();
         void InsertBook(Book &newBook);
+        void ShowResultsBySearch();
         ~BooksView();
 };
 

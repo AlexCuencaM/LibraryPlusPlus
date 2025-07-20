@@ -11,6 +11,7 @@ class BookService
         BookService(LinkedList<Book> &bookList);
         ~BookService();
         void AddBook(const Book& book);
+        Book* SearchBook(const std::string title, const std::string author) const;
         void PrintBooks();
         // Other service methods can be added here
 };
