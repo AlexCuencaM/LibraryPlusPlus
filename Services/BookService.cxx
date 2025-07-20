@@ -28,7 +28,6 @@ Book* BookService::SearchBook(const std::string title, const std::string author)
     // bookList
     vector<Book> allBooks = bookList->GetAll(); // Get all books from the list
     for (const auto& book : allBooks) {
-        cout << "Checking: '" << book.Title << "' by '" << author << "'"<< endl; // Debugging output
         if (book.Title == title || book.Author == author) {
             cout << "Book found: " << book << endl; // Debugging output
             return new Book(book); // Return a new Book object if found
