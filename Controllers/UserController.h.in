@@ -1,0 +1,15 @@
+#ifndef USER_CONTROLLER_HPP
+#define USER_CONTROLLER_HPP
+#include <Services/UserService.hpp>
+#include <Entities/User.hpp>
+#include <Views/UserView.hpp>
+class UserController {
+private:
+    UserService* userService; // Pointer to UserService instance
+    UserView* userView; // Instance of UserView for user interactions
+public:
+    UserController(UserService &userService, UserView &userView); // Constructor to initialize UserService
+    void InsertUser(); // Method to insert a new user
+    ~UserController(); // Destructor
+};
+#endif // USER_CONTROLLER_HPP

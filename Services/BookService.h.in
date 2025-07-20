@@ -1,7 +1,7 @@
 #ifndef BOOK_SERVICE_H
 #define BOOK_SERVICE_H
 #include <Entities/Book.hpp>
-#include <DataStructure/ModernLinkedList.hpp>
+#include <DataStructure/LinkedList.hpp>
 class BookService
 {
     private:

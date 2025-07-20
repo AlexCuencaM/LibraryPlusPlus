@@ -12,7 +12,7 @@ class ModernLinkedList: public LinkedList<Data> {
         // Add methods and members as needed
         void InsertAtHead(Data data) override;
         void Print() override;
-        void Search(Data data) override;
+        // void Search(Data data) override;
         vector<Data> GetAll() override;
 };
 
@@ -41,15 +41,15 @@ void ModernLinkedList<Data>::Print()
     }
     cout << endl;
 }
-template <typename Data>
-void ModernLinkedList<Data>::Search(Data data)
-{
-    auto it = find(dataList.begin(), dataList.end(), data);
-    if (it != dataList.end()) {
-        cout << "Found: " << *it << endl;
-    } else {
-        cout << "Not found: " << data << endl;
-    }
-}
+// template <typename Data>
+// void ModernLinkedList<Data>::Search(Data data)
+// {
+//     auto it = find(dataList.begin(), dataList.end(), data);
+//     if (it != dataList.end()) {
+//         cout << "Found: " << *it << endl;
+//     } else {
+//         cout << "Not found: " << data << endl;
+//     }
+// }
 #endif
 

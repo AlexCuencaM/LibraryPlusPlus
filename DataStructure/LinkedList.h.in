@@ -6,7 +6,7 @@ class LinkedList{
     public:
         virtual void InsertAtHead(Data data) = 0;
         virtual void Print() = 0;
-        virtual void Search(Data data) = 0;
+        // virtual void Search(Data data) = 0;
         virtual std::vector<Data> GetAll() = 0;
 };
 #endif

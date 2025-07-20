@@ -1,0 +1,16 @@
+#ifndef USER__SERVICE_HPP
+#define USER__SERVICE_HPP
+#include <vector>
+#include <string>
+#include <Entities/User.hpp>
+#include <DataStructure/LinkedList.hpp>
+class UserService {
+private:
+    LinkedList<User>* userList; // Assuming LinkedList is a template class defined in DataStructure/LinkedList.h
+public:
+    UserService(LinkedList<User> &userList);
+    void AddUser(const User &user); // Add a new user
+    User* GetUser(const std::string &cedula); // Get a user by username
+    ~UserService(); // Virtual destructor
+};
+#endif // USER__SERVICE_HPP
