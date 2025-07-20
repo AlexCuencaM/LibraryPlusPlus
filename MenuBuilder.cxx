@@ -5,7 +5,6 @@
 MenuBuilder::MenuBuilder(BooksController& booksController)
 {
     this->booksController = &booksController;
-    // MenuView menu(booksController);
     this->menuView = new MenuView(booksController); // Initialize the MenuView with the BooksController instance
 }
 

@@ -65,7 +65,7 @@ void BooksView::ShowResultsBySearch()
     {
         cout << "No book found matching the criteria." << endl;
     } 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+    cin.ignore(); // Clear the input buffer
     cin.get(); // Wait for Enter key
 }
 BooksView::~BooksView()
