@@ -1,0 +1,39 @@
+#ifndef MODERNQUEUE_HPP
+#define MODERNQUEUE_HPP
+#include <DataStructure/Queue.hpp>
+#include <queue>
+using namespace std;
+template <typename Data>
+class ModernQueue: public Queue<Data> {
+    public:
+        queue<Data> dataQueue; // Using STL queue to manage the data
+        void Enqueue(Data data) override; 
+        void Dequeue() override;
+        // Get all elements in the queue as a vector
+        vector <Data> GetAll() const override;
+};
+template <typename Data>
+void ModernQueue<Data>::Enqueue(Data data)
+{
+    dataQueue.push(data); // Add the data to the end of the queue
+}
+
+template <typename Data>
+void ModernQueue<Data>::Dequeue()
+{
+    dataQueue.pop(); // Remove the front element from the queue
+}
+
+template <typename Data>
+vector<Data> ModernQueue<Data>::GetAll() const
+{
+    vector<Data> elements;
+    queue<Data> tempQueue = dataQueue; // Create a copy to avoid modifying the original queue
+    while (!tempQueue.empty()) {
+        elements.push_back(tempQueue.front()); // Add the front element to the vector
+        tempQueue.pop(); // Remove the front element from the temporary queue
+    }
+    return elements; // Return all elements in the queue as a vector
+}
+#endif
+

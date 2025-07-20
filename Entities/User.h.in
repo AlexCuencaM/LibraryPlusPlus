@@ -1,0 +1,13 @@
+#ifndef BOOK_H
+#define BOOK_H
+#include <string>
+using namespace std;
+class User
+{
+    public:
+        string Name;
+        string Cedula;
+        friend ostream& operator<<(ostream& os, const User& book);
+};
+
+#endif

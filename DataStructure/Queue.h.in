@@ -1,10 +1,11 @@
 #ifndef LINKEDLIST_HPP
 #define LINKEDLIST_HPP
+#include <vector>
 template <typename Data>
 class Queue{
     public:
         virtual void Enqueue(Data data) = 0;
-        virtual void Dequeue(Data data) = 0;
-        virtual void Print() = 0;
+        virtual void Dequeue() = 0;
+        virtual std::vector<Data> GetAll() const = 0; // Get all elements in the queue
 };
 #endif
