@@ -45,16 +45,12 @@ void BooksView::SearchBook(string& title, string& author)
 }
 void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
-    // string title, author;
-    // SearchBook(title, author); // Get search criteria from user
-    
     if(bookFiltered == nullptr)
     {
         cout << "No book found matching the criteria." << endl;
     } 
     cout << "Book found..." << endl;
     cin.ignore(); // Clear the input buffer
-    // cin.get(); // Wait for Enter key
 }
 BooksView::~BooksView()
 {
