@@ -1,23 +1,10 @@
-#include <Views/BooksView.hpp>
 #include <iostream>
-#include <Entities/Book.hpp>
 #include <string>
-#include <Controllers/BooksController.hpp>
 #include <limits>
+#include <Views/BooksView.hpp>
+#include <Entities/Book.hpp>
+#include <Controllers/BooksController.hpp>
 using namespace std;
-BooksView::BooksView(BookService& bookService)
-{
-    // Initialize the book service
-    this->bookService = &bookService; // Assuming bookService is a reference to an existing BookService instance
-}
-void BooksView::ShowBooks()
-{
-    cout << "Printing all books in the list:" << endl;
-    this->bookService->PrintBooks(); // Call the PrintBooks method from BooksController
-    cout << "Press Enter to continue..." << endl;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
-    cin.get(); // Wait for Enter key
-}
 void BooksView::InsertBook(Book &newBook)
 {
     cout << "Inserting a new book..." << endl;
@@ -56,16 +43,18 @@ void BooksView::SearchBook(string& title, string& author)
         author = ""; // Reset author if 'N' is entered
     }
 }
-void BooksView::ShowResultsBySearch()
+void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
-    string title, author;
-    SearchBook(title, author); // Get search criteria from user
-    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    // string title, author;
+    // SearchBook(title, author); // Get search criteria from user
+    
     if(bookFiltered == nullptr)
     {
         cout << "No book found matching the criteria." << endl;
     } 
+    cout << "Book found..." << endl;
     cin.ignore(); // Clear the input buffer
+    // cin.get(); // Wait for Enter key
 }
 BooksView::~BooksView()
 {

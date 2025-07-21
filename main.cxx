@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 {
     ModernLinkedList<Book> bookList;
     BookService bookService(bookList);
-    BooksView booksView(bookService);
+    BooksView booksView;
     BooksController bookController(bookService, booksView);
     MenuBuilder menuBuilder(bookController);
     menuBuilder.BuildMenu();

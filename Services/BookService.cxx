@@ -12,13 +12,11 @@ BookService::~BookService()
 {    
     cout << "BookService destroyed and book list cleaned up." << endl;
 }
-
 void BookService::AddBook(const Book &book)
 {
     cout << "Book added: " << book.Title << " by " << book.Author << endl;
     bookList->InsertAtHead(book); // Insert the book at the head of the list
 }
-
 void BookService::PrintBooks()
 {   
     bookList->Print(); // Print all books in the list

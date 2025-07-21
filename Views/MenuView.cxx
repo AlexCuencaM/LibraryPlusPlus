@@ -1,4 +1,5 @@
 #include <Views/MenuView.hpp>
+#include <iostream>
 using namespace std;
 MenuView::MenuView(BooksController& booksController)
 {

@@ -29,13 +29,16 @@ void BooksController::AddBook()
 
 void BooksController::PrintBooks()
 {
-    if (booksView) {
-        booksView->ShowBooks(); // Call the ShowBooks method from BooksView
-    } else {
-        cout << "BooksView is not initialized." << endl;
-    }
+    cout << "Printing all books in the list:" << endl;
+    this->bookService->PrintBooks(); // Call the PrintBooks method from BooksController
+    cout << "Press Enter to continue..." << endl;
+    cin.ignore(); // Clear the input buffer
+    cin.get(); // Wait for Enter key
 }
 void BooksController::SearchBook()
 {
-    booksView->ShowResultsBySearch();
+    string title, author;
+    this->booksView->SearchBook(title, author); // Get search criteria from user
+    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    this->booksView->ShowResultsBySearch(bookFiltered); // Show the results of the search
 }
