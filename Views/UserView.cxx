@@ -11,5 +11,4 @@ void UserView::InsertUser(User &newUser)
     getline(cin, newUser.Name);
     cout << "User added successfully!" << endl;
     cin.ignore(); // Clear the input buffer
-    cin.get(); // Wait for Enter key
 }

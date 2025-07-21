@@ -1,10 +1,12 @@
 #include <Views/MenuView.hpp>
 #include <iostream>
 using namespace std;
-MenuView::MenuView(BooksController& booksController)
+MenuView::MenuView(BooksController& booksController, UserController& userController)
 {
     // Initialize the booksController pointer
     this->booksController = &booksController; // Assuming booksController is a reference to an existing BooksController instance
+    // Initialize the userController pointer
+    this->userController = &userController; // Assuming userController is a reference to an
 }
 
 void MenuView::ShowMenu()
@@ -45,7 +47,7 @@ bool MenuView::SelectView(int option)
             booksController->SearchBook();
             break;
         case 4:
-            // Implement user creation functionality
+            userController->InsertUser();
             break;
         case 5:
             // Implement book lending functionality

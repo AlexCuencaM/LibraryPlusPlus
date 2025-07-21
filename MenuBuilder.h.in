@@ -2,15 +2,17 @@
 #define MENU_BUILDER_HPP
 #include <iostream>
 #include <Controllers/BooksController.hpp>
+#include <Controllers/UserController.hpp>
 #include <Views/MenuView.hpp>
 class MenuBuilder
 {
 private:
     /* data */
     BooksController* booksController; // Pointer to BooksController instance
+    UserController* userController; // Pointer to UserController instance
     MenuView* menuView; // Pointer to MenuView instance
 public:
-    MenuBuilder(BooksController& booksController);    
+    MenuBuilder(BooksController& booksController, UserController& userController);    
     void BuildMenu();
     ~MenuBuilder();
 };
