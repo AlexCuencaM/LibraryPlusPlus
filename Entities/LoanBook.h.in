@@ -1,0 +1,20 @@
+#ifndef LOAN_BOOK_HPP
+#define LOAN_BOOK_HPP
+#include <Entities/Book.hpp>
+#include <Entities/User.hpp>
+#include <DataStructure/Queue.hpp>
+class LoanBook
+{
+private:
+    Book* book; // Assuming Book is a class defined in Entities/Book.hpp
+    Queue<User>* userQueue; // Assuming User is a class defined in Entities/User.hpp
+    /* data */
+public:
+    LoanBook(Queue<User>& userQueue, Book& book);
+    Book* GetBook() const;
+    void LoanBookByCedula(const std::string& cedula);
+    void ReturnBookByCedula(const std::string& cedula);
+    friend ostream& operator<<(ostream& os, const LoanBook& book);
+};
+
+#endif // LOAN_BOOK_HPP

@@ -1,0 +1,14 @@
+#ifndef LOAN_BOOK_VIEW_HPP
+#define LOAN_BOOK_VIEW_HPP
+#include <iostream>
+class LoanBookView
+{
+    public:
+        LoanBookView() = default; // Default constructor
+        ~LoanBookView() = default; // Default destructor
+        // Function to display a message when a book is successfully loaned
+        void DisplayLoanSuccess(const std::string& bookTitle, const std::string& userCedula);
+        // Function to display a message when a book is successfully returned
+        void DisplayReturnSuccess(const std::string& bookTitle, const std::string& userCedula);
+};
+#endif

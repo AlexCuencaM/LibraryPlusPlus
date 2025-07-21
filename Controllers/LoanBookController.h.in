@@ -1,0 +1,17 @@
+#ifndef LOAN_BOOK_CONTROLLER_HPP
+#define LOAN_BOOK_CONTROLLER_HPP
+#include <Services/LoanBookService.hpp>
+#include <Views/LoanBookView.hpp>
+class LoanBookController{
+    private:
+        /* data */
+        // Assuming LoanBookService is a class defined in Services/LoanBookService.hpp
+        LoanBookService* loanBookService; // Pointer to the service handling loan book operations
+        LoanBookView* loanBookView; // Pointer to the view handling loan book operations
+    public:
+        LoanBookController(LoanBookService &loanBookService, LoanBookView &loanBookView);
+        ~LoanBookController();
+        void LoanBookByCedula();
+        void ReturnBookByCedula();
+};
+#endif

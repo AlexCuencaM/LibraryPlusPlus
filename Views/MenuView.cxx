@@ -1,12 +1,14 @@
 #include <Views/MenuView.hpp>
 #include <iostream>
 using namespace std;
-MenuView::MenuView(BooksController& booksController, UserController& userController)
+MenuView::MenuView(BooksController& booksController, UserController& userController, LoanBookController& loanBookController)
 {
     // Initialize the booksController pointer
-    this->booksController = &booksController; // Assuming booksController is a reference to an existing BooksController instance
+    this->booksController = &booksController;
     // Initialize the userController pointer
-    this->userController = &userController; // Assuming userController is a reference to an
+    this->userController = &userController;
+    // Initialize the loanBookController pointer
+    this->loanBookController = &loanBookController;
 }
 
 void MenuView::ShowMenu()
@@ -50,10 +52,12 @@ bool MenuView::SelectView(int option)
             userController->InsertUser();
             break;
         case 5:
+            loanBookController->LoanBookByCedula();
             // Implement book lending functionality
             break;
         case 6:
             // Implement book return functionality
+            loanBookController->ReturnBookByCedula();
             break;
         case 7:
             cout << "Exiting the system." << endl;

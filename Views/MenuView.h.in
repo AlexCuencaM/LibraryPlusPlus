@@ -2,14 +2,16 @@
 #define MENU_VIEW_H
 #include <Controllers/BooksController.hpp>
 #include <Controllers/UserController.hpp>
+#include <Controllers/LoanBookController.hpp>
 class MenuView
 {
 private:
     BooksController* booksController; // Pointer to BooksController instance
     UserController* userController; // Pointer to UserController instance
+    LoanBookController* loanBookController; // Pointer to LoanBookController instance
     /* data */
 public:
-    MenuView(BooksController& booksController, UserController& userController); // Constructor to initialize BooksController and UserController
+    MenuView(BooksController& booksController, UserController& userController, LoanBookController& loanBookController); // Constructor to initialize BooksController and UserController
     void ShowMenu();
     ~MenuView();
     int ChooseOption();

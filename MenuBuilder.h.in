@@ -1,8 +1,10 @@
 #ifndef MENU_BUILDER_HPP
 #define MENU_BUILDER_HPP
 #include <iostream>
+#include <Entities/LoanBook.hpp>
 #include <Controllers/BooksController.hpp>
 #include <Controllers/UserController.hpp>
+#include <Controllers/LoanBookController.hpp>
 #include <Views/MenuView.hpp>
 class MenuBuilder
 {
@@ -10,9 +12,10 @@ private:
     /* data */
     BooksController* booksController; // Pointer to BooksController instance
     UserController* userController; // Pointer to UserController instance
+    LoanBookController* loanBookController; // Pointer to LoanBookController instance
     MenuView* menuView; // Pointer to MenuView instance
 public:
-    MenuBuilder(BooksController& booksController, UserController& userController);    
+    MenuBuilder(BooksController& booksController, UserController& userController, LoanBookController& loanBookController);
     void BuildMenu();
     ~MenuBuilder();
 };

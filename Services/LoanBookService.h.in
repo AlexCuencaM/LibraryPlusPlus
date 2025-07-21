@@ -1,0 +1,15 @@
+#ifndef LOAN_BOOK_SERVICE_HPP
+#define LOAN_BOOK_SERVICE_HPP
+#include <Entities/LoanBook.hpp>
+#include <DataStructure/LinkedList.hpp>
+class LoanBookService
+{
+    private:
+        /* data */
+        LinkedList<LoanBook>* loanBookList; // Assuming LoanBook is a class defined in Entities/LoanBook.hpp
+    public:
+        LoanBookService(LinkedList<LoanBook> &loanBookList);
+        ~LoanBookService();
+        void LoanBookByCedula(const std::string& cedula);
+};
+#endif
