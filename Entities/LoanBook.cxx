@@ -5,18 +5,9 @@ LoanBook::LoanBook(Queue<User> &userQueue, Book& book)
     this->userQueue = &userQueue; // Initialize the user queue
     this->book = &book; // Initially, no book is associated with the loan
 }
-
 Book* LoanBook::GetBook() const
 {
     return this->book; // Return the book associated with the loan
-}
-
-void LoanBook::LoanBookByCedula(const std::string &cedula)
-{
-}
-
-void LoanBook::ReturnBookByCedula(const std::string &cedula)
-{
 }
 
 ostream &operator<<(ostream &os, const LoanBook &loanBook)

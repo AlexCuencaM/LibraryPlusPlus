@@ -1,7 +1,10 @@
 #ifndef LOAN_BOOK_SERVICE_HPP
 #define LOAN_BOOK_SERVICE_HPP
 #include <Entities/LoanBook.hpp>
+#include <Entities/Book.hpp>
+#include <Entities/User.hpp>
 #include <DataStructure/LinkedList.hpp>
+#include <Services/UserService.hpp>
 class LoanBookService
 {
     private:
@@ -10,6 +13,8 @@ class LoanBookService
     public:
         LoanBookService(LinkedList<LoanBook> &loanBookList);
         ~LoanBookService();
-        void LoanBookByCedula(const std::string& cedula);
+        bool InsertLoan(Book& book, User& user);
+        User* SearchUserByCedula(LoanBook& loanBook,User& user);
+        LoanBook* SearchLoanBookByBook(Book& book);
 };
 #endif

@@ -9,6 +9,7 @@ class ModernQueue: public Queue<Data> {
         queue<Data> dataQueue; // Using STL queue to manage the data
         void Enqueue(Data data) override; 
         void Dequeue() override;
+        bool IsEmpty() const override;
         // Get all elements in the queue as a vector
         vector <Data> GetAll() const override;
 };
@@ -37,3 +38,8 @@ vector<Data> ModernQueue<Data>::GetAll() const
 }
 #endif
 
+template <typename Data>
+bool ModernQueue<Data>::IsEmpty() const
+{ 
+    return dataQueue.empty();
+} // Check if the queue is empty

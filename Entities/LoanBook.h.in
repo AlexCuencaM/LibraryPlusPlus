@@ -7,13 +7,11 @@ class LoanBook
 {
 private:
     Book* book; // Assuming Book is a class defined in Entities/Book.hpp
-    Queue<User>* userQueue; // Assuming User is a class defined in Entities/User.hpp
     /* data */
 public:
+    Queue<User>* userQueue; // Assuming User is a class defined in Entities/User.hpp
     LoanBook(Queue<User>& userQueue, Book& book);
     Book* GetBook() const;
-    void LoanBookByCedula(const std::string& cedula);
-    void ReturnBookByCedula(const std::string& cedula);
     friend ostream& operator<<(ostream& os, const LoanBook& book);
 };
 

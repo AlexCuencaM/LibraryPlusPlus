@@ -1,13 +1,15 @@
 #ifndef LOAN_BOOK_VIEW_HPP
 #define LOAN_BOOK_VIEW_HPP
 #include <iostream>
+#include <Entities/Book.hpp>
+#include <Entities/User.hpp>
+#include <Entities/LoanBook.hpp>
 class LoanBookView
 {
     public:
-        LoanBookView() = default; // Default constructor
-        ~LoanBookView() = default; // Default destructor
+        
         // Function to display a message when a book is successfully loaned
-        void DisplayLoanSuccess(const std::string& bookTitle, const std::string& userCedula);
+        void InsertLoan(bool isNewLoan);
         // Function to display a message when a book is successfully returned
         void DisplayReturnSuccess(const std::string& bookTitle, const std::string& userCedula);
 };

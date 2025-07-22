@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
     // Initialize the controllers
     UserController userController(userService, userView);   
     BooksController bookController(bookService, booksView);
-    LoanBookController loanBookController(loanBookService, loanBookView); // Initialize LoanBookController with the service and view
+    LoanBookController loanBookController(loanBookService, loanBookView, bookService, booksView, userService, userView); // Initialize LoanBookController with the service and view
     // Initialize the MenuBuilder with the controllers
     MenuBuilder menuBuilder(bookController, userController, loanBookController);
     menuBuilder.BuildMenu();

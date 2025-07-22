@@ -10,7 +10,7 @@ private:
 public:
     UserService(LinkedList<User> &userList);
     void AddUser(const User &user); // Add a new user
-    User* GetUser(const std::string &cedula); // Get a user by username
+    User* GetUser(std::string &cedula); // Get a user by username
     ~UserService(); // Virtual destructor
 };
 #endif // USER__SERVICE_HPP

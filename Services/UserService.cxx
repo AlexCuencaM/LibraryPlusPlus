@@ -1,6 +1,7 @@
 #include <Services/UserService.hpp>
 #include <vector>
 #include <string>
+#include <iostream>
 using namespace std;
 UserService::UserService(LinkedList<User> &userList)
 {
@@ -10,9 +11,12 @@ void UserService::AddUser(const User &user)
 {
     userList->InsertAtHead(user); // Insert the user at the head of the list
 }
-User* UserService::GetUser(const string &cedula)
+User* UserService::GetUser(string &cedula)
 {
     for (auto &user : userList->GetAll()) {
+        cout << "Checking user with cedula: " << user.Cedula << endl; // Debugging output
+        cout << "User name: " << cedula << endl; // Debugging output
+        // Check if the cedula matches the user's cedula
         if (user.Cedula == cedula) {
             return &user; // Return the user if found
         }

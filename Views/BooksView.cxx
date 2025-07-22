@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <limits>
 #include <Views/BooksView.hpp>
 #include <Entities/Book.hpp>
 #include <Controllers/BooksController.hpp>
@@ -15,6 +14,7 @@ void BooksView::InsertBook(Book &newBook)
     getline(cin, newBook.Title);
     cout << "Enter publisher: ";
     getline(cin, newBook.Publisher);
+    
     cout << "Enter year: ";
     cin >> newBook.Year;
     cout << "Enter number of pages: ";
@@ -24,7 +24,7 @@ void BooksView::InsertBook(Book &newBook)
     cout << "Book added successfully!" << endl;
     // Wait for user input before proceeding
     cout << "Press Enter to continue...";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear the input buffer
+    cin.ignore();
     cin.get(); // Wait for Enter key
 }
 void BooksView::SearchBook(string& title, string& author)
@@ -36,6 +36,7 @@ void BooksView::SearchBook(string& title, string& author)
     getline(cin, title);
     cout << "Enter author to search, press N to skip the filter: ";
     getline(cin, author);
+    cin.ignore(); // Clear the input buffer
     if(title == "N" || title.empty()) {
         title = ""; // Reset title if 'N' is entered
     }
@@ -47,10 +48,10 @@ void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
     if(bookFiltered == nullptr)
     {
-        cout << "No book found matching the criteria." << endl;
+        cout << "No hay registro de ese libro." << endl;
+        return; // Exit if no book is found
     } 
-    cout << "Book found..." << endl;
-    cin.ignore(); // Clear the input buffer
+    cout << "Libro encontrado: " << *bookFiltered << endl;
 }
 BooksView::~BooksView()
 {
