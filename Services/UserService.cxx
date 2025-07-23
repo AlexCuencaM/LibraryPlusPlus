@@ -11,9 +11,13 @@ void UserService::AddUser(const User &user)
 {
     userList->InsertAtHead(user); // Insert the user at the head of the list
 }
-User* UserService::GetUser(string &cedula)
+// User const *UserService::GetUser(std::string &cedula)
+// {
+//     return nullptr;
+// }
+User const *UserService::GetUser(string &cedula)
 {
-    for (auto &user : userList->GetAll()) {
+    for (const auto &user : userList->GetAll()) {
         cout << "Checking user with cedula: " << user.Cedula << endl; // Debugging output
         cout << "User name: " << cedula << endl; // Debugging output
         // Check if the cedula matches the user's cedula

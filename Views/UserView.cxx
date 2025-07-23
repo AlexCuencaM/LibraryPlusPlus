@@ -21,7 +21,7 @@ void UserView::SearchCedula(std::string &cedula)
 }
 
 
-bool UserView::ValidateUser(User *user)
+bool UserView::ValidateUser(User const *user)
 {
     if (user == nullptr) {
         cout << "Usuario no encontrado!" << endl;

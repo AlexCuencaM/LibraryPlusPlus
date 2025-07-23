@@ -8,6 +8,6 @@ public:
     // UserView(UserService &userService); // Constructor to initialize UserService
     void InsertUser(User& newUser); // Display all users
     void SearchCedula(std::string& cedula); // Search user by cedula
-    bool ValidateUser(User* user); // Validate user input
+    bool ValidateUser(User const* user); // Validate user input
 };
 #endif // USER_VIEW_HPP

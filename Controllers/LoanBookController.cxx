@@ -22,7 +22,7 @@ void LoanBookController::LoanBookByCedula()
     //Search for the book by author or title
     string title, author, cedula;
     this->bookView->SearchBook(title, author); // Get search criteria from user
-    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    Book const* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
     this->bookView->ShowResultsBySearch(bookFiltered); // Show the results of the search
     bool isValidBook = this->bookService->ValidateBook(bookFiltered); // Validate the book
     if(!isValidBook) {
@@ -31,14 +31,17 @@ void LoanBookController::LoanBookByCedula()
         return; // Exit if the book is not valid
     }
     this->userView->SearchCedula(cedula); // Get the cedula from user
-    User* user = this->userService->GetUser(cedula); // Assuming title is used as a cedula for the user
+    cout << "Cedula: " << cedula << endl;
+    User const* user = this->userService->GetUser(cedula); // Assuming title is used as a cedula for the user
     bool isValidUser = this->userView->ValidateUser(user); // Validate the user
-    if (!isValidUser) {
-        cout << "Usuario no registrado, no se procede al préstamo" << endl;
-        cin.ignore(); // Clear the input buffer
-        cin.get(); // Wait for user input before proceeding
-        return; // Exit if the user is not valid
-    }
+    cout << isValidUser << endl;
+
+    // if (!isValidUser) {
+    //     cout << "Usuario no registrado, no se procede al préstamo" << endl;
+    //     cin.ignore(); // Clear the input buffer
+    //     cin.get(); // Wait for user input before proceeding
+    //     return; // Exit if the user is not valid
+    // }
     // bool isNewLoan = this->loanBookService->InsertLoan(*bookFiltered, *user); // Call the InsertLoan method from LoanBookService
     // this->loanBookView->InsertLoan(isNewLoan); // Display the result of the loan operation
 }
