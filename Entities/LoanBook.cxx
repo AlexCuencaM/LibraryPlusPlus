@@ -1,8 +1,8 @@
 #include <Entities/LoanBook.hpp>
 #include <iostream>
-LoanBook::LoanBook(Queue<User> &userQueue, Book& book)
+LoanBook::LoanBook(Book& book)
 {
-    this->userQueue = &userQueue; // Initialize the user queue
+    // this->userQueue = &userQueue; // Initialize the user queue
     this->book = &book; // Initially, no book is associated with the loan
 }
 Book* LoanBook::GetBook() const

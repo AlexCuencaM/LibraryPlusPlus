@@ -22,18 +22,22 @@ void BookService::PrintBooks()
     bookList->Print(); // Print all books in the list
 }
 //linear search
-Book const* BookService::SearchBook(const std::string title, const std::string author) const{
+Book* BookService::SearchBook(std::string title,std::string author){
     // bookList
+    if (title.empty() && author.empty()) {
+        cout << "No search criteria provided." << endl;
+        return nullptr; // Return nullptr if no search criteria is provided
+    }
     vector<Book> allBooks = bookList->GetAll(); // Get all books from the list
-    for (const auto& book : allBooks) {
+    for (auto& book : allBooks) {
         if (book.Title == title || book.Author == author) {
-            return &book; // Return a new Book object if found
+            return new Book(book); // Return a new Book object if a match is found
         }
     }
     return nullptr; // Return nullptr if no book is found
 }
 
-bool BookService::ValidateBook(Book const* book)
+bool BookService::ValidateBook(Book* book)
 {
     if (book == nullptr) {
         return false; // Book not found

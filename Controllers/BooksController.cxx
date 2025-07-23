@@ -38,7 +38,7 @@ void BooksController::PrintBooks()
 void BooksController::SearchBook()
 {
     string title, author;
-    this->booksView->SearchBook(title, author); // Get search criteria from user
-    Book const* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    this->booksView->SearchBook(title, author); // Get search criteria from user    
+    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
     this->booksView->ShowResultsBySearch(bookFiltered); // Show the results of the search
 }

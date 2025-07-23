@@ -8,7 +8,7 @@ class BooksView
     public:
         void SearchBook(std::string& title, std::string& author);
         void InsertBook(Book &newBook);
-        void ShowResultsBySearch(Book const* bookFiltered);
+        void ShowResultsBySearch(Book* bookFiltered);
         ~BooksView();
 };
 

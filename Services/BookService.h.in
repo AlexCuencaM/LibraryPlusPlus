@@ -11,8 +11,8 @@ class BookService
         BookService(LinkedList<Book> &bookList);
         ~BookService();
         void AddBook(const Book& book);
-        Book const* SearchBook(const std::string title, const std::string author) const;
-        bool ValidateBook(Book const* book);
+        Book* SearchBook(std::string title, std::string author);
+        bool ValidateBook(Book* book);
         void PrintBooks();
         // Other service methods can be added here
 };

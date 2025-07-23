@@ -36,7 +36,6 @@ void BooksView::SearchBook(string& title, string& author)
     getline(cin, title);
     cout << "Enter author to search, press N to skip the filter: ";
     getline(cin, author);
-    // cin.ignore(); // Clear the input buffer
     if(title == "N" || title.empty()) {
         title = ""; // Reset title if 'N' is entered
     }
@@ -44,13 +43,14 @@ void BooksView::SearchBook(string& title, string& author)
         author = ""; // Reset author if 'N' is entered
     }
 }
-void BooksView::ShowResultsBySearch(Book const* bookFiltered)
+void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
     if(bookFiltered == nullptr)
     {
         cout << "No hay registro de ese libro." << endl;
         return; // Exit if no book is found
-    } 
+    }
+    cout << "Resultados de la busqueda:" << endl;
     cout << "Libro encontrado: " << *bookFiltered << endl;
 }
 BooksView::~BooksView()

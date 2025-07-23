@@ -20,7 +20,7 @@ template <typename Data>
 vector<Data> ModernLinkedList<Data>::GetAll() {
     vector<Data> allData;
     allData.reserve(dataList.size());
-    for (const auto& item : dataList) {
+    for (auto& item : dataList) {
         allData.push_back(item);
     }
     return allData;

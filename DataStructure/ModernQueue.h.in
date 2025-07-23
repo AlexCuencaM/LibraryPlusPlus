@@ -6,12 +6,13 @@ using namespace std;
 template <typename Data>
 class ModernQueue: public Queue<Data> {
     public:
+        
         queue<Data> dataQueue; // Using STL queue to manage the data
         void Enqueue(Data data) override; 
         void Dequeue() override;
         bool IsEmpty() const override;
         // Get all elements in the queue as a vector
-        vector <Data> GetAll() const override;
+        vector <Data> GetAll() override;
 };
 template <typename Data>
 void ModernQueue<Data>::Enqueue(Data data)
@@ -26,7 +27,7 @@ void ModernQueue<Data>::Dequeue()
 }
 
 template <typename Data>
-vector<Data> ModernQueue<Data>::GetAll() const
+vector<Data> ModernQueue<Data>::GetAll()
 {
     vector<Data> elements;
     queue<Data> tempQueue = dataQueue; // Create a copy to avoid modifying the original queue

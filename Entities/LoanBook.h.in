@@ -10,7 +10,7 @@ private:
     /* data */
 public:
     Queue<User>* userQueue; // Assuming User is a class defined in Entities/User.hpp
-    LoanBook(Queue<User>& userQueue, Book& book);
+    LoanBook(Book& book);
     Book* GetBook() const;
     friend ostream& operator<<(ostream& os, const LoanBook& book);
 };
