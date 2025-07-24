@@ -1,13 +1,9 @@
 #include <Views/LoanBookView.hpp>
 #include <iostream>
 using namespace std;
-void LoanBookView::InsertLoan(bool isNewLoan)
+void LoanBookView::InsertLoan(string responseMsg)
 {
-    if (isNewLoan) {
-        cout << "Préstamo realizado exitosamente." << endl;
-    } else {
-        cout << "El libro ya está prestado a otro usuario, está en cola." << endl;
-    }
+    cout << responseMsg << endl; // Display the message indicating whether a new loan was created or an existing user was added
     cin.ignore(); // Clear the input buffer
     cout << "Presione Enter para continuar...";
     cin.get(); // Wait for user input

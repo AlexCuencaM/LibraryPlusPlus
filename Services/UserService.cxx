@@ -18,8 +18,6 @@ void UserService::AddUser(const User &user)
 User *UserService::GetUser(string &cedula)
 {
     for (auto &user : userList->GetAll()) {
-        cout << "Checking user with cedula: " << user.Cedula << endl; // Debugging output
-        cout << "User name: " << cedula << endl; // Debugging output
         // Check if the cedula matches the user's cedula
         if (user.Cedula == cedula) {
             return new User(user); // Return the user if found

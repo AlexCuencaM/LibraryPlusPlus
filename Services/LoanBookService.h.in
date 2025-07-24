@@ -13,7 +13,8 @@ class LoanBookService
     public:
         LoanBookService(LinkedList<LoanBook> &loanBookList);
         ~LoanBookService();
-        bool InsertLoan(Book& book, User& user);
+        string InsertLoan(Book& book, User& user);
+        string ReturnBook(Book& book);
         User* SearchUserByCedula(LoanBook& loanBook,User& user);
         LoanBook* SearchLoanBookByBook(Book& book);
 };

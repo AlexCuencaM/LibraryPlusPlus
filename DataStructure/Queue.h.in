@@ -5,7 +5,7 @@ template <typename Data>
 class Queue{
     public:
         virtual void Enqueue(Data data) = 0;
-        virtual void Dequeue() = 0;
+        virtual Data Dequeue() = 0;
         virtual bool IsEmpty() const = 0; // Check if the queue is empty
         virtual std::vector<Data> GetAll() = 0; // Get all elements in the queue
 };

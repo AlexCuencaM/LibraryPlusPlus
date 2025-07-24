@@ -7,9 +7,8 @@
 class LoanBookView
 {
     public:
-        
         // Function to display a message when a book is successfully loaned
-        void InsertLoan(bool isNewLoan);
+        void InsertLoan(std::string responseMsg);
         // Function to display a message when a book is successfully returned
         void DisplayReturnSuccess(const std::string& bookTitle, const std::string& userCedula);
 };

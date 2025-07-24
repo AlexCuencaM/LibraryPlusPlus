@@ -9,7 +9,7 @@ class ModernQueue: public Queue<Data> {
         
         queue<Data> dataQueue; // Using STL queue to manage the data
         void Enqueue(Data data) override; 
-        void Dequeue() override;
+        Data Dequeue() override;
         bool IsEmpty() const override;
         // Get all elements in the queue as a vector
         vector <Data> GetAll() override;
@@ -21,9 +21,11 @@ void ModernQueue<Data>::Enqueue(Data data)
 }
 
 template <typename Data>
-void ModernQueue<Data>::Dequeue()
+Data ModernQueue<Data>::Dequeue()
 {
+    Data deletedBook = dataQueue.front(); // Access the front element (optional, can be used for checking)
     dataQueue.pop(); // Remove the front element from the queue
+    return deletedBook; // Return the removed element
 }
 
 template <typename Data>
