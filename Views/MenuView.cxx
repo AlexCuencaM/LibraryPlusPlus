@@ -60,10 +60,10 @@ bool MenuView::SelectView(int option)
             loanBookController->ReturnBookByCedula();
             break;
         case 7:
-            cout << "Exiting the system." << endl;
+            cout << "Saliendo del sistema." << endl;
             return false; // Exit the menu
         default:
-            cout << "Invalid option. Please try again." << endl;
+            cout << "Opcion invalida. Intente de nuevo." << endl;
             return false; // Continue showing the menu
     }
     return true; // Continue showing the menu

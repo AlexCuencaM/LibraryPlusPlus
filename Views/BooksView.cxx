@@ -6,23 +6,23 @@
 using namespace std;
 void BooksView::InsertBook(Book &newBook)
 {
-    cout << "Inserting a new book..." << endl;
-    cout << "Enter author: ";
+    cout << "Agregando un nuevo libro..." << endl;
+    cout << "Ingrese autor: ";
     cin.ignore(); // Clear the input buffer
     getline(cin, newBook.Author);
-    cout << "Enter title: ";
+    cout << "Ingrese titulo del libro: ";
     getline(cin, newBook.Title);
     cout << "Enter publisher: ";
     getline(cin, newBook.Publisher);
-    cout << "Enter year: ";
+    cout << "Ingrese anio: ";
     cin >> newBook.Year;
-    cout << "Enter number of pages: ";
+    cout << "Ingrese numero de paginas: ";
     cin >> newBook.Pages;
-    cout << "Enter ISBN: ";
+    cout << "Ingrese ISBN: ";
     cin >> newBook.ISBN;
-    cout << "Book added successfully!" << endl;
+    cout << "Libro agregado !" << endl;
     // Wait for user input before proceeding
-    cout << "Press Enter to continue...";
+    cout << "Presione enter para continuar...";
 
     cin.ignore(); // Clear the input buffer
     cin.get(); // Wait for Enter key
@@ -31,10 +31,10 @@ void BooksView::SearchBook(string& title, string& author)
 {
     // This method can be implemented to search for a book by title and author
     // For now, we will just print the search criteria
-    cout << "Enter title to search, press N to skip the filter: ";
+    cout << "Ingrese el titulo para buscar, presione N para omitir el filtro: ";
     cin.ignore(); // Clear the input buffer
     getline(cin, title);
-    cout << "Enter author to search, press N to skip the filter: ";
+    cout << "Ingrese el titulo para buscar, presione N para omitir el filtro: ";
     getline(cin, author);
     if(title == "N" || title.empty()) {
         title = ""; // Reset title if 'N' is entered

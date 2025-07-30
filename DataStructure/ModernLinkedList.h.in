@@ -30,7 +30,7 @@ template <typename Data>
 void ModernLinkedList<Data>::InsertAtHead(Data data)
 {
     dataList.push_front(data);
-    cout << "Inserted at head: " << endl << data << endl << endl; 
+    cout << "Nodo insertado en el head: " << endl << data << endl << endl; 
 }
 
 template <typename Data>

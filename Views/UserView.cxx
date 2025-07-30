@@ -3,14 +3,14 @@
 using namespace std;
 void UserView::InsertUser(User &newUser)
 {
-    cout << "Inserting a new user..." << endl;
-    cout << "Enter cedula: ";
+    cout << "agregando un nuevo usuario..." << endl;
+    cout << "Ingrese cedula: ";
     cin >> newUser.Cedula;
     cin.ignore(); // Clear the input buffer
-    cout << "Enter name: ";
+    cout << "Ingrese nombre: ";
     getline(cin, newUser.Name);
-    cout << "User added successfully!" << endl;
-    cout << "Cedula: " << newUser.Cedula << ", Name: " << newUser.Name << endl;
+    cout << "Usuario agregado !" << endl;
+    cout << "Cedula: " << newUser.Cedula << ", Nombre: " << newUser.Name << endl;
     cin.ignore(); // Clear the input buffer
 }
 

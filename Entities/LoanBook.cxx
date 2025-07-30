@@ -14,7 +14,7 @@ ostream &operator<<(ostream &os, const LoanBook &loanBook)
 {
     // TODO: insert return statement here
     if (loanBook.GetBook() == nullptr) {
-        os << "No book associated with this loan.";
+        os << "No hay un libro asociado al prestamos.";
         return os;
     }
     os << "Titulo del libro: " << loanBook.GetBook()->Title << ", Autor: " << loanBook.GetBook()->Author;

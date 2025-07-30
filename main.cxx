@@ -11,7 +11,6 @@
 using namespace std;
 int main(int argc, char* argv[]) 
 {
-    cout << "Welcome to the Library Management System!" << endl;
     // Initialize the linked lists for books and users
     ModernLinkedList<Book> bookList;
     ModernLinkedList<User> userList;
