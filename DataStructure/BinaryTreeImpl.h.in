@@ -10,7 +10,6 @@ class BinaryTreeImpl: public BinaryTree<T>
 private:
     Queue<Node<T>*>* queue;
     Node<T>* root;
-    /* data */
     bool searchRecursive(Node<T>* current, function<bool (T data)> func);
     T* searchRecursiveV2(Node<T> *current, function<bool (T data)> func);
 public:
@@ -72,7 +71,6 @@ bool BinaryTreeImpl<T>::searchRecursive(Node<T> *current, function<bool(T data)>
 template <typename T>
 T* BinaryTreeImpl<T>::searchRecursiveV2(Node<T> *current, function<bool (T data)> func)
 {
-    
     if (current == nullptr) return nullptr;
     if (func(current->Data)) {
         return &current->Data;
