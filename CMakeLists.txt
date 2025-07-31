@@ -1,13 +1,34 @@
 cmake_minimum_required(VERSION 3.10)
 project(LibrarylusPlus)
 # add_executable(LibrarylusPlus hello_world.cxx Bye.cxx Hello.cxx)
-add_executable(LibrarylusPlus Entities/Book.cxx Entities/User.cxx Entities/LoanBook.cxx Services/BookService.cxx Services/UserService.cxx Services/LoanBookService.cxx Controllers/BooksController.cxx Controllers/UserController.cxx Controllers/LoanBookController.cxx Views/LoanBookView.cxx Views/BooksView.cxx Views/UserView.cxx Views/MenuView.cxx MenuBuilder.cxx main.cxx)
+add_executable(LibrarylusPlus
+    Entities/Book.cxx
+    Entities/User.cxx
+    Entities/LoanBook.cxx
+    Services/BookService.cxx
+    Services/UserService.cxx
+    Services/LoanBookService.cxx
+    Controllers/BooksController.cxx
+    Controllers/UserController.cxx
+    Controllers/LoanBookController.cxx
+    Views/LoanBookView.cxx
+    Views/BooksView.cxx
+    Views/UserView.cxx
+    Views/MenuView.cxx
+    MenuBuilder.cxx
+    main.cxx
+)
 target_include_directories(LibrarylusPlus PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
 configure_file(Entities/Book.h.in Entities/Book.hpp)
 configure_file(Entities/User.h.in Entities/User.hpp)
 configure_file(Entities/LoanBook.h.in Entities/LoanBook.hpp)
+#Binary tree moment
+configure_file(DataStructure/BinaryTree.h.in DataStructure/BinaryTree.hpp)
+configure_file(DataStructure/BinaryTreeImpl.h.in DataStructure/BinaryTreeImpl.hpp)
+configure_file(DataStructure/Node.h.in DataStructure/Node.hpp)
+
 configure_file(DataStructure/Queue.h.in DataStructure/Queue.hpp)
 configure_file(DataStructure/ModernQueue.h.in DataStructure/ModernQueue.hpp)
 configure_file(DataStructure/LinkedList.h.in DataStructure/LinkedList.hpp)

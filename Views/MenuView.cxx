@@ -16,7 +16,7 @@ void MenuView::ShowMenu()
     cout << "\n=== SISTEMA DE BIBLIOTECA ===\n";
     cout << "1. Agregar Libro\n";
     cout << "2. Mostrar todo el catalogo de libros\n";
-    cout << "3. Busqueda de libros\n";
+    cout << "3. Busqueda de libros | con Arbol binario !\n";
     cout << "4. Crear Usuarios\n";
     cout << "5. Prestar Libros\n";
     cout << "6. Devolucion de Libros\n";

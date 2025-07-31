@@ -39,6 +39,6 @@ void BooksController::SearchBook()
 {
     string title, author;
     this->booksView->SearchBook(title, author); // Get search criteria from user    
-    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    Book* bookFiltered = this->bookService->SearchBookByTreeDataStructure(title, author); // Call the SearchBook method from BookService
     this->booksView->ShowResultsBySearch(bookFiltered); // Show the results of the search
 }

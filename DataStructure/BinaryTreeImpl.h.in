@@ -1,0 +1,97 @@
+#ifndef BINARY_TREE_IMPL_HPP
+#define BINARY_TREE_IMPL_HPP
+#include <functional> // Needed for std::function
+#include <DataStructure/BinaryTree.hpp>
+#include <DataStructure/Queue.hpp>
+#include <DataStructure/Node.hpp>
+template <typename T>
+class BinaryTreeImpl: public BinaryTree<T>
+{
+private:
+    Queue<Node<T>*>* queue;
+    Node<T>* root;
+    /* data */
+    bool searchRecursive(Node<T>* current, function<bool (T data)> func);
+    T* searchRecursiveV2(Node<T> *current, function<bool (T data)> func);
+public:
+    BinaryTreeImpl(Queue<Node<T>*>& queue);
+    ~BinaryTreeImpl();
+    bool any(function<bool(T data)> func) override;
+    void insertNode(T value) override;
+    T* firstOrDefault(function<bool (T data)> func) override;
+};
+#endif
+template <typename T>
+BinaryTreeImpl<T>::BinaryTreeImpl(Queue<Node<T>*> &queue): root(nullptr)
+{
+    this->queue = &queue;
+}
+
+template <typename T>
+BinaryTreeImpl<T>::~BinaryTreeImpl()
+{
+}
+
+template <typename T>
+void BinaryTreeImpl<T>::insertNode(T value)
+{
+    Node<T>* newNode = new Node<T>(value);
+    if (root == nullptr) {
+        root = newNode;
+        return;
+    }
+    queue->Enqueue(root);
+    while (!queue->IsEmpty())
+    {
+        Node<T>* current = queue->GetFrontItem();
+        queue->Dequeue();
+        if(current->left == nullptr){
+            current->left = newNode;
+            return;
+        }
+        else{
+            queue->Enqueue(current->left);
+        }
+        if (current->right == nullptr) {
+            current->right = newNode;
+            return;
+        } else {
+            queue->Enqueue(current->right);
+        }
+    }
+    queue->ClearAll();
+}
+
+template <typename T>
+bool BinaryTreeImpl<T>::searchRecursive(Node<T> *current, function<bool(T data)> func)
+{
+    if (current == nullptr) return false;
+    if (func(current->Data)) return true;
+    return searchRecursive(current->left, func) || searchRecursive(current->right, func);
+}
+template <typename T>
+T* BinaryTreeImpl<T>::searchRecursiveV2(Node<T> *current, function<bool (T data)> func)
+{
+    
+    if (current == nullptr) return nullptr;
+    if (func(current->Data)) {
+        return &current->Data;
+    }
+    T* leftResult = searchRecursiveV2(current->left, func);
+    if (leftResult != nullptr) {
+        return leftResult;
+    }
+    return searchRecursiveV2(current->right, func);
+}
+
+template <typename T>
+bool BinaryTreeImpl<T>::any(function<bool(T data)> func)
+{
+    return searchRecursive(root, func);
+}
+
+template <typename T>
+T *BinaryTreeImpl<T>::firstOrDefault(function<bool (T data)> func)
+{
+    return searchRecursiveV2(root, func);
+}

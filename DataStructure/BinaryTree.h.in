@@ -1,0 +1,13 @@
+#ifndef BINARY_TREE_HPP
+#define BINARY_TREE_HPP
+#include <functional> // Needed for std::function
+template <typename T>
+class BinaryTree
+{
+    public:
+        virtual void insertNode(T value) = 0;  
+        virtual bool any(function<bool(T data)> func) = 0;
+        virtual T* firstOrDefault(function<bool (T data)> func) = 0;
+        //virtual bool searchRecursive(Node<T>* current, T value) = 0;
+};
+#endif

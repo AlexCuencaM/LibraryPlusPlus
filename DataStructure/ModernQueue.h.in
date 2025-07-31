@@ -13,6 +13,8 @@ class ModernQueue: public Queue<Data> {
         bool IsEmpty() const override;
         // Get all elements in the queue as a vector
         vector <Data> GetAll() override;
+        Data GetFrontItem() override;
+        void ClearAll() override;
 };
 template <typename Data>
 void ModernQueue<Data>::Enqueue(Data data)
@@ -46,3 +48,17 @@ bool ModernQueue<Data>::IsEmpty() const
 { 
     return dataQueue.empty();
 } // Check if the queue is empty
+
+template <typename Data>
+Data ModernQueue<Data>::GetFrontItem()
+{
+    return dataQueue.front();
+}
+
+template <typename Data>
+void ModernQueue<Data>::ClearAll()
+{
+    while (!dataQueue.empty()) {
+        dataQueue.pop(); // Remove the front element from the temporary queue
+    }
+}

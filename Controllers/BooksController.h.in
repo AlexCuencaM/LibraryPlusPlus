@@ -14,6 +14,7 @@ class BooksController
         void PrintBooks();
         // const std::string& author, const std::string& title
         void SearchBook();
+        // void SearchBookByTreeDataStructure();
 };
 
 #endif // BOOKS_CONTROLLER_HPP

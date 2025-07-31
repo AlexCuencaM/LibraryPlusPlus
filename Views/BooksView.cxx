@@ -34,7 +34,7 @@ void BooksView::SearchBook(string& title, string& author)
     cout << "Ingrese el titulo para buscar, presione N para omitir el filtro: ";
     cin.ignore(); // Clear the input buffer
     getline(cin, title);
-    cout << "Ingrese el titulo para buscar, presione N para omitir el filtro: ";
+    cout << "Ingrese el autor para buscar, presione N para omitir el filtro: ";
     getline(cin, author);
     if(title == "N" || title.empty()) {
         title = ""; // Reset title if 'N' is entered
