@@ -60,7 +60,7 @@ void LoanBookController::ModifyBook()
     if(!isValidBook) {
         return; // Exit if the book is not valid
     }
-    
+    this->loanBookView->InsertLoan(this->bookView->ModifyBook(bookFiltered));
 }
 
 void LoanBookController::DeleteBook()

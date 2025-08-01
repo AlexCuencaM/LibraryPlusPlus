@@ -27,6 +27,38 @@ void BooksView::InsertBook(Book &newBook)
     cin.ignore(); // Clear the input buffer
     cin.get(); // Wait for Enter key
 }
+
+// ...existing code...
+string BooksView::ModifyBook(Book *newBook)
+{
+    if (newBook == nullptr) {
+        cout << "No se encontró el libro para modificar." << endl;
+        return;
+    }
+
+    cout << "Modificando libro..." << endl;
+    cout << "Ingrese nuevo autor (o presione enter para mantener): ";
+    string input;
+    cin.ignore();
+    getline(cin, input);
+    if (!input.empty()) newBook->Author = input;
+    cout << "Ingrese nuevo título (o presione enter para mantener): ";
+    getline(cin, input);
+    if (!input.empty()) newBook->Title = input;
+    cout << "Ingrese nueva editorial (o presione enter para mantener): ";
+    getline(cin, input);
+    if (!input.empty()) newBook->Publisher = input;
+    cout << "Año actual: " << newBook->Year << endl;
+    cout << "Ingrese nuevo año (o presione enter para mantener): ";
+    getline(cin, input);
+    if (!input.empty()) newBook->Year = stoi(input);
+    cout << "Páginas actuales: " << newBook->Pages << endl;
+    cout << "Ingrese nuevo número de páginas (o presione enter para mantener): ";
+    getline(cin, input);
+    if (!input.empty()) newBook->Pages = stoi(input);
+    return "Libro modificado exitosamente!";
+}
+// ...existing code...
 void BooksView::SearchBook(string& title, string& author)
 {
     // This method can be implemented to search for a book by title and author
@@ -43,6 +75,8 @@ void BooksView::SearchBook(string& title, string& author)
         author = ""; // Reset author if 'N' is entered
     }
 }
+
+
 void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
     if(bookFiltered == nullptr)
