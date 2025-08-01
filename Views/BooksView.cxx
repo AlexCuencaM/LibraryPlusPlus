@@ -48,10 +48,12 @@ void BooksView::ShowResultsBySearch(Book* bookFiltered)
     if(bookFiltered == nullptr)
     {
         cout << "No hay registro de ese libro." << endl;
+        cin.ignore();
         return; // Exit if no book is found
     }
     cout << "Resultados de la busqueda:" << endl;
     cout << "Libro encontrado: " << *bookFiltered << endl;
+    cin.ignore();
 }
 BooksView::~BooksView()
 {

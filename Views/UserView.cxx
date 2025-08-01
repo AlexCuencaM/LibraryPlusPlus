@@ -16,7 +16,7 @@ void UserView::InsertUser(User &newUser)
 
 void UserView::SearchCedula(std::string &cedula)
 {
-    cout << "Ingrese cédula del usuario a buscar: ";
+    cout << "Ingrese cedula del usuario a buscar: ";
     cin >> cedula;
 }
 

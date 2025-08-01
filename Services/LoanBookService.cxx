@@ -47,6 +47,7 @@ string LoanBookService::ReturnBook(Book &book)
 
 User *LoanBookService::SearchUserByCedula(LoanBook& loanBook,User& user)
 {
+
     if (loanBook.userQueue == nullptr) {
         cout << "La cola de usuarios no está inicializada." << endl;
         return nullptr; // Return nullptr if the user queue is not initialized
@@ -61,14 +62,7 @@ User *LoanBookService::SearchUserByCedula(LoanBook& loanBook,User& user)
 
 LoanBook *LoanBookService::SearchLoanBookByBook(Book &book)
 {
-    for (auto &loanBook : this->loanBookList->GetAll()) {
-        if (loanBook.GetBook() == nullptr) {
-            cout << "El prestamo no tiene libros asociados." << endl;
-            continue; // Skip if the LoanBook has no book
-        }
-        if (loanBook.GetBook()->ISBN == book.ISBN) { // Assuming ISBN is unique for each book
-            return new LoanBook(loanBook); // Return the found LoanBook
-        }
-    }
-    return nullptr; // Return nullptr if no matching LoanBook is found
+    return this->loanBookList->firstOrDefault([book](LoanBook loanBook){
+        return loanBook.GetBook() != nullptr && loanBook.GetBook()->ISBN == book.ISBN;
+    });   
 }

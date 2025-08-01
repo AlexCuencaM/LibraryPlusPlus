@@ -44,13 +44,13 @@ bool MenuView::SelectView(int option)
             booksController->AddBook();
             break;
         case 2:
-            booksController->PrintBooks();
-            break;
-        case 3:
             loanBookController->ModifyBook();
             break;
-        case 4:
+            case 3:
             loanBookController->DeleteBook();
+            break;
+            case 4:
+            booksController->PrintBooks();
             break;
         case 5:
             booksController->SearchBook();

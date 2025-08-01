@@ -1,6 +1,10 @@
 #include <Entities/LoanBook.hpp>
 #include <iostream>
-LoanBook::LoanBook(Book& book)
+LoanBook::~LoanBook()
+{
+    this->userQueue->ClearAll();
+}
+LoanBook::LoanBook(Book &book)
 {
     // this->userQueue = &userQueue; // Initialize the user queue
     this->book = &book; // Initially, no book is associated with the loan
