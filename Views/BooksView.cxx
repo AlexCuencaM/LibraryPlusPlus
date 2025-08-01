@@ -32,14 +32,12 @@ void BooksView::InsertBook(Book &newBook)
 string BooksView::ModifyBook(Book *newBook)
 {
     if (newBook == nullptr) {
-        cout << "No se encontró el libro para modificar." << endl;
-        return;
+        return "No se encontr el libro para modificar.";
     }
 
     cout << "Modificando libro..." << endl;
     cout << "Ingrese nuevo autor (o presione enter para mantener): ";
     string input;
-    cin.ignore();
     getline(cin, input);
     if (!input.empty()) newBook->Author = input;
     cout << "Ingrese nuevo título (o presione enter para mantener): ";
