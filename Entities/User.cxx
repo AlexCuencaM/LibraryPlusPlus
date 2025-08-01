@@ -7,3 +7,7 @@ ostream &operator<<(ostream &os, const User &user)
     os << "Nombre: " << user.Name << ", Cedula: " << user.Cedula;
     return os;
 }
+bool User::operator==(const User &other) const
+{
+    return this->Name == other.Name && this->Cedula == other.Cedula;
+}

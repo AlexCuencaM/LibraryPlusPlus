@@ -24,3 +24,6 @@ ostream &operator<<(ostream &os, const LoanBook &loanBook)
     os << "Titulo del libro: " << loanBook.GetBook()->Title << ", Autor: " << loanBook.GetBook()->Author;
     return os;
 }
+bool LoanBook::operator==(const LoanBook& other) const {
+        return this->book != nullptr && other.book != nullptr && this->book == other.book;
+};

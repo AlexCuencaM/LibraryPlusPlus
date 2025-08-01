@@ -8,6 +8,6 @@ class User
         string Name;
         string Cedula;
         friend ostream& operator<<(ostream& os, const User& user);
+        bool operator==(const User& other) const;
 };
-
 #endif

@@ -65,8 +65,9 @@ void ModernLinkedList<Data>::RemoveAt(Data *data)
     // if(it != dataList->end()){
     //     dataList->erase(it);
     // }
-    if(data != dataList->end()){
-        dataList->erase(data);
+    auto it = find(dataList.begin(), dataList.end(), *data);
+    if(it != dataList.end()){
+        dataList.erase(it);
     }
 }
 #endif

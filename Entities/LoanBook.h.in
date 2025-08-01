@@ -14,6 +14,7 @@ public:
     LoanBook(Book& book);
     Book* GetBook() const;
     friend ostream& operator<<(ostream& os, const LoanBook& book);
+    bool operator==(const LoanBook& other) const;
 };
 
 #endif // LOAN_BOOK_HPP
