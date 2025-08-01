@@ -1,5 +1,5 @@
 // #include <iostream>
-// data structure
+// data structures used by all the project
 #include <DataStructure/ModernLinkedList.hpp>
 #include <DataStructure/BinaryTree.hpp>
 #include <DataStructure/BinaryTreeImpl.hpp>
@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
     // Initialize the services
     BookService bookService(bookList, tree);
     UserService userService(userList); 
-    LoanBookService loanBookService(loanBookList); // Initialize LoanBookService with the loan book list
+    LoanBookService loanBookService(loanBookList);
     // Initialize the views
     BooksView booksView;
     UserView userView;
@@ -34,7 +34,8 @@ int main(int argc, char* argv[])
     // Initialize the controllers
     UserController userController(userService, userView);   
     BooksController bookController(bookService, booksView);
-    LoanBookController loanBookController(loanBookService, loanBookView, bookService, booksView, userService, userView); // Initialize LoanBookController with the service and view
+    LoanBookController loanBookController(loanBookService, loanBookView, bookService, 
+        booksView, userService, userView);
     // Initialize the MenuBuilder with the controllers
     MenuBuilder menuBuilder(bookController, userController, loanBookController);
     menuBuilder.BuildMenu();

@@ -68,6 +68,7 @@ bool BinaryTreeImpl<T>::searchRecursive(Node<T> *current, function<bool(T data)>
     if (func(current->Data)) return true;
     return searchRecursive(current->left, func) || searchRecursive(current->right, func);
 }
+
 template <typename T>
 T* BinaryTreeImpl<T>::searchRecursiveV2(Node<T> *current, function<bool (T data)> func)
 {

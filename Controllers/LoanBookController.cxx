@@ -58,3 +58,11 @@ void LoanBookController::ReturnBookByCedula()
     }
     this->loanBookView->InsertLoan(this->loanBookService->ReturnBook(*bookFiltered)); // Display the result of the loan operation
 }
+
+void LoanBookController::ModifyBook()
+{
+}
+
+void LoanBookController::DeleteBook()
+{
+}

@@ -23,5 +23,7 @@ class LoanBookController{
         ~LoanBookController();
         void LoanBookByCedula();
         void ReturnBookByCedula();
+        void ModifyBook();
+        void DeleteBook();
 };
 #endif

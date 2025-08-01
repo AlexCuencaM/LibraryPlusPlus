@@ -3,24 +3,25 @@
 using namespace std;
 MenuView::MenuView(BooksController& booksController, UserController& userController, LoanBookController& loanBookController)
 {
-    // Initialize the booksController pointer
     this->booksController = &booksController;
-    // Initialize the userController pointer
     this->userController = &userController;
-    // Initialize the loanBookController pointer
     this->loanBookController = &loanBookController;
 }
 
 void MenuView::ShowMenu()
 {
+    int opc = 1;
     cout << "\n=== SISTEMA DE BIBLIOTECA ===\n";
-    cout << "1. Agregar Libro\n";
-    cout << "2. Mostrar todo el catalogo de libros\n";
-    cout << "3. Busqueda de libros | con Arbol binario !\n";
-    cout << "4. Crear Usuarios\n";
-    cout << "5. Prestar Libros\n";
-    cout << "6. Devolucion de Libros\n";
-    cout << "7. Salir\n";
+    cout << opc++ << ". Agregar Libro\n";
+    cout << opc++ << ". Modificar Libro\n";
+    cout << opc++ << ". Eliminar Libro\n";
+    cout << opc++ << ". Mostrar todo el catalogo de libros\n";
+    cout << opc++ << ". Busqueda de libros\n";
+    cout << opc++ << ". Busqueda de libros | con Arbol binario !\n";
+    cout << opc++ << ". Crear Usuarios\n";
+    cout << opc++ << ". Prestar Libros\n";
+    cout << opc++ << ". Devolucion de Libros\n";
+    cout << opc++ << ". Salir\n";
 }
 
 MenuView::~MenuView()
@@ -46,20 +47,27 @@ bool MenuView::SelectView(int option)
             booksController->PrintBooks();
             break;
         case 3:
-            booksController->SearchBook();
+            loanBookController->ModifyBook();
             break;
         case 4:
-            userController->InsertUser();
+            loanBookController->DeleteBook();
             break;
         case 5:
-            loanBookController->LoanBookByCedula();
-            // Implement book lending functionality
+            booksController->SearchBook();
             break;
         case 6:
-            // Implement book return functionality
-            loanBookController->ReturnBookByCedula();
+            booksController->SearchBookByTreeDataStructure();
             break;
         case 7:
+            userController->InsertUser();
+            break;
+        case 8:
+            loanBookController->LoanBookByCedula();
+            break;
+        case 9:
+            loanBookController->ReturnBookByCedula();
+            break;
+        case 10:
             cout << "Saliendo del sistema." << endl;
             return false; // Exit the menu
         default:

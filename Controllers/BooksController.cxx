@@ -35,10 +35,19 @@ void BooksController::PrintBooks()
     cin.ignore(); // Clear the input buffer
     cin.get(); // Wait for Enter key
 }
+
 void BooksController::SearchBook()
 {
     string title, author;
-    this->booksView->SearchBook(title, author); // Get search criteria from user    
+    this->booksView->SearchBook(title, author);
+    Book* bookFiltered = this->bookService->SearchBook(title, author); // Call the SearchBook method from BookService
+    this->booksView->ShowResultsBySearch(bookFiltered); // Show the results of the search
+}
+
+void BooksController::SearchBookByTreeDataStructure()
+{
+    string title, author;
+    this->booksView->SearchBook(title, author);
     Book* bookFiltered = this->bookService->SearchBookByTreeDataStructure(title, author); // Call the SearchBook method from BookService
     this->booksView->ShowResultsBySearch(bookFiltered); // Show the results of the search
 }

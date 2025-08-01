@@ -12,9 +12,10 @@ class BooksController
         ~BooksController();
         void AddBook();
         void PrintBooks();
+        
         // const std::string& author, const std::string& title
         void SearchBook();
-        // void SearchBookByTreeDataStructure();
+        void SearchBookByTreeDataStructure();
 };
 
 #endif // BOOKS_CONTROLLER_HPP
