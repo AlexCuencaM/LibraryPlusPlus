@@ -12,8 +12,9 @@ class ModernLinkedList: public LinkedList<Data> {
         // Add methods and members as needed
         void InsertAtHead(Data data) override;
         void Print() override;
-        // void Search(Data data) override;
         vector<Data> GetAll() override;
+        Data* firstOrDefault(function<bool (Data data)> func) override;
+        void ForEach(function<void (Data& data)> func) override;
 };
 
 template <typename Data> 
@@ -41,15 +42,20 @@ void ModernLinkedList<Data>::Print()
     }
     cout << endl;
 }
-// template <typename Data>
-// void ModernLinkedList<Data>::Search(Data data)
-// {
-//     auto it = find(dataList.begin(), dataList.end(), data);
-//     if (it != dataList.end()) {
-//         cout << "Found: " << *it << endl;
-//     } else {
-//         cout << "Not found: " << data << endl;
-//     }
-// }
+template <typename Data>
+void ModernLinkedList<Data>::ForEach(function<void(Data& data)> func)
+{
+    for_each(this->dataList.begin(), this->dataList.end(), func);
+}
+template <typename Data>
+Data *ModernLinkedList<Data>::firstOrDefault(function<bool(Data data)> func)
+{
+    for (auto it = dataList.begin(); it != dataList.end(); it++) {
+        if (func(*it)) {
+            return &(*it);
+        }
+    }
+    return nullptr;
+}
 #endif
 

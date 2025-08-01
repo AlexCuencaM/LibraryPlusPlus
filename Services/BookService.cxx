@@ -30,13 +30,9 @@ Book* BookService::SearchBook(std::string title, std::string author){
         cout << "No search criteria provided." << endl;
         return nullptr; // Return nullptr if no search criteria is provided
     }
-    vector<Book> allBooks = bookList->GetAll(); // Get all books from the list
-    for (auto& book : allBooks) {
-        if (book.Title == title || book.Author == author) {
-            return new Book(book); // Return a new Book object if a match is found
-        }
-    }
-    return nullptr; // Return nullptr if no book is found
+    return bookList->firstOrDefault([title, author](Book book){
+        return book.Title == title || book.Author == author;
+    });
 }
 //Tree searching
 Book* BookService::SearchBookByTreeDataStructure(std::string title, std::string author)
@@ -48,13 +44,25 @@ Book* BookService::SearchBookByTreeDataStructure(std::string title, std::string 
     for (auto& book : bookList->GetAll()) {
         treeOfBooks->insertNode(book);
     }
-    Book* bookMoment = treeOfBooks->firstOrDefault([title, author](Book book) ->
-        bool{
-            return book.Title == title || book.Author == author;
-        });
-    return bookMoment;
+    Book* bookFiltered = treeOfBooks->firstOrDefault([title, author](Book book){
+        return book.Title == title || book.Author == author;
+    });
+    return bookFiltered;
 }
-bool BookService::ValidateBook(Book* book)
+void BookService::ModifyBook(Book bookModified)
+{
+    bookList->ForEach([bookModified](Book& data){
+        if(bookModified.ISBN == data.ISBN){
+            data.Title = bookModified.Title;
+            data.Author = bookModified.Author;
+            data.Publisher = bookModified.Publisher;
+            data.Year = bookModified.Year;
+            data.Pages = bookModified.Pages;
+            return;
+        }
+    });
+}
+bool BookService::ValidateBook(Book *book)
 {
     if (book == nullptr) {
         return false; // Book not found

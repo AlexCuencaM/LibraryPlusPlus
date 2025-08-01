@@ -7,7 +7,7 @@ class BookService
 {
     private:
         /* data */
-        LinkedList<Book>* bookList; // Assuming LinkedList is a template class defined in DataStructure/LinkedList.h
+        LinkedList<Book>* bookList;
     BinaryTree<Book>* treeOfBooks;
     public:
         BookService(LinkedList<Book> &bookList, BinaryTree<Book>& treeOfBooks);
@@ -15,6 +15,7 @@ class BookService
         void AddBook(const Book& book);
         Book* SearchBook(std::string title, std::string author);
         Book* SearchBookByTreeDataStructure(std::string title, std::string author);
+        void ModifyBook(Book book);
         bool ValidateBook(Book* book);
         void PrintBooks();
         // Other service methods can be added here

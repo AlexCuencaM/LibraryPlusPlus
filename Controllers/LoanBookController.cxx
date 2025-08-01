@@ -24,21 +24,14 @@ void LoanBookController::LoanBookByCedula()
     this->bookView->SearchBook(title, author); // Get search criteria from user
     Book* bookFiltered = this->bookService->SearchBook(title, author);
     this->bookView->ShowResultsBySearch(bookFiltered); // Show the results of the search
-
     bool isValidBook = this->bookService->ValidateBook(bookFiltered); // Validate the book
     if(!isValidBook) {
-        cout << "No se procede al préstamo" << endl;
-        cin.ignore(); // Clear the input buffer
         return; // Exit if the book is not valid
     }
     this->userView->SearchCedula(cedula); // Get the cedula from user
     User* user = this->userService->GetUser(cedula); // Assuming title is used as a cedula for the user
     bool isValidUser = this->userView->ValidateUser(user); // Validate the user
-    cout << isValidUser << endl;
-
     if (!isValidUser) {
-        cout << "Usuario no registrado, no se procede al préstamo" << endl;
-        cin.ignore(); // Clear the input buffer
         return; // Exit if the user is not valid
     }
     this->loanBookView->InsertLoan(this->loanBookService->InsertLoan(*bookFiltered, *user)); // Display the result of the loan operation
@@ -46,14 +39,12 @@ void LoanBookController::LoanBookByCedula()
 
 void LoanBookController::ReturnBookByCedula()
 {
-    string title, author, cedula;
+    string title, author;
     this->bookView->SearchBook(title, author); // Get search criteria from user
     Book* bookFiltered = this->bookService->SearchBook(title, author);
     this->bookView->ShowResultsBySearch(bookFiltered); // Show the results of the search
     bool isValidBook = this->bookService->ValidateBook(bookFiltered); // Validate the book
     if(!isValidBook) {
-        cout << "No se procede al préstamo" << endl;
-        cin.ignore(); // Clear the input buffer
         return; // Exit if the book is not valid
     }
     this->loanBookView->InsertLoan(this->loanBookService->ReturnBook(*bookFiltered)); // Display the result of the loan operation
@@ -61,6 +52,15 @@ void LoanBookController::ReturnBookByCedula()
 
 void LoanBookController::ModifyBook()
 {
+    string title, author;
+    this->bookView->SearchBook(title, author); // Get search criteria from user
+    Book* bookFiltered = this->bookService->SearchBook(title, author);
+    this->bookView->ShowResultsBySearch(bookFiltered); // Show the results of the search
+    bool isValidBook = this->bookService->ValidateBook(bookFiltered); // Validate the book
+    if(!isValidBook) {
+        return; // Exit if the book is not valid
+    }
+    
 }
 
 void LoanBookController::DeleteBook()
