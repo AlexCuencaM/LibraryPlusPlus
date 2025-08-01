@@ -10,5 +10,6 @@ class LinkedList{
         virtual void ForEach(std::function<void (Data& data)> func) = 0;
         virtual Data* firstOrDefault(std::function<bool (Data data)> func) = 0;
         virtual std::vector<Data> GetAll() = 0;
+        virtual void RemoveAt(Data* data) = 0;
 };
 #endif

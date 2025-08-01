@@ -6,7 +6,6 @@ LoanBookService::LoanBookService(LinkedList<LoanBook> &loanBookList)
 {
     this->loanBookList = &loanBookList; // Initialize the loan book list
 }
-
 LoanBookService::~LoanBookService()
 {
 }
@@ -29,14 +28,21 @@ string LoanBookService::InsertLoan(Book &book, User &user)
     return "El usuario: " + user.Name + " esta en la cola para el prestamo"; // User already exists in the loan book
 }
 
+string LoanBookService::DeleteLoanByIsbnBook(Book &book)
+{
+    LoanBook* loanBook = SearchLoanBookByBook(book);
+    this->loanBookList->RemoveAt(loanBook);
+    return "Prestamo eliminado correctamente";
+}
+
 string LoanBookService::ReturnBook(Book &book)
 {
     LoanBook* loanBook = SearchLoanBookByBook(book);
     if(loanBook == nullptr) {
-        return "El libro " + book.Title + "ya se encuentra en el inventario"; // No loan book found for the given book
+        return "El libro " + book.Title + " ya se encuentra en el inventario"; // No loan book found for the given book
     }
     if(loanBook->userQueue->IsEmpty()) {
-        return "El libro " + book.Title + "ya se encuentra en el inventario"; // No loan book found for the given book
+        return "El libro " + book.Title + " ya se encuentra en el inventario"; // No loan book found for the given book
     } 
     User userDeleteFromQueue = loanBook->userQueue->Dequeue(); // Dequeue the user from the loan book
     if(loanBook->userQueue->IsEmpty()) {

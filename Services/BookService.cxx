@@ -23,6 +23,17 @@ void BookService::PrintBooks()
 {   
     bookList->Print(); // Print all books in the list
 }
+Book* BookService::SearchBookByIsbn(std::string isbn){
+    // bookList
+    if (isbn.empty()) {
+        cout << "No search criteria provided." << endl;
+        return nullptr; // Return nullptr if no search criteria is provided
+    }
+    return bookList->firstOrDefault([isbn](Book book){
+        return book.ISBN == isbn;
+    });
+}
+
 //linear search
 Book* BookService::SearchBook(std::string title, std::string author){
     // bookList
@@ -48,6 +59,11 @@ Book* BookService::SearchBookByTreeDataStructure(std::string title, std::string 
         return book.Title == title || book.Author == author;
     });
     return bookFiltered;
+}
+string BookService::DeleteBook(Book *book)
+{
+    this->bookList->RemoveAt(book);
+    return "Libro eliminado !";
 }
 void BookService::ModifyBook(Book bookModified)
 {

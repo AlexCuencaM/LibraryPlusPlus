@@ -74,6 +74,15 @@ void BooksView::SearchBook(string& title, string& author)
     }
 }
 
+void BooksView::SearchBookByIsbn(string& isbn)
+{
+    // This method can be implemented to search for a book by title and author
+    // For now, we will just print the search criteria
+    cout << "Ingrese el ISBN para buscar: ";
+    cin.ignore(); // Clear the input buffer
+    cin >> isbn;
+}
+
 
 void BooksView::ShowResultsBySearch(Book* bookFiltered)
 {
@@ -85,7 +94,6 @@ void BooksView::ShowResultsBySearch(Book* bookFiltered)
     }
     cout << "Resultados de la busqueda:" << endl;
     cout << "Libro encontrado: " << *bookFiltered << endl;
-    cin.ignore();
 }
 BooksView::~BooksView()
 {

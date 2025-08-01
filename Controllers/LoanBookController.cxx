@@ -62,7 +62,17 @@ void LoanBookController::ModifyBook()
     }
     this->loanBookView->InsertLoan(this->bookView->ModifyBook(bookFiltered));
 }
-
 void LoanBookController::DeleteBook()
 {
+    string isbn;
+    this->bookView->SearchBookByIsbn(isbn); // Get search criteria from user
+    Book* bookFiltered = this->bookService->SearchBookByIsbn(isbn);
+    this->bookView->ShowResultsBySearch(bookFiltered); // Show the results of the search
+    bool isValidBook = this->bookService->ValidateBook(bookFiltered); // Validate the book
+    if(!isValidBook) {
+        return; // Exit if the book is not valid
+    }
+    string loanBookResponse = this->loanBookService->DeleteLoanByIsbnBook(*bookFiltered);
+    string bookResponse = this->bookService->DeleteBook(bookFiltered);
+    this->loanBookView->RemoveLoan(loanBookResponse, bookResponse);
 }

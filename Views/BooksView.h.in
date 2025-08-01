@@ -7,6 +7,7 @@ class BooksView
         /* data */
     public:
         void SearchBook(std::string& title, std::string& author);
+        void SearchBookByIsbn(std::string& isbn);
         void InsertBook(Book &newBook);
         string ModifyBook(Book* newBook);
         void ShowResultsBySearch(Book* bookFiltered);

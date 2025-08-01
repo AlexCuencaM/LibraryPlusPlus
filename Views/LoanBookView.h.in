@@ -11,5 +11,6 @@ class LoanBookView
         void InsertLoan(std::string responseMsg);
         // Function to display a message when a book is successfully returned
         void DisplayReturnSuccess(const std::string& bookTitle, const std::string& userCedula);
+        void RemoveLoan(string loanBookResponseMsg, string bookResponseMsg);
 };
 #endif

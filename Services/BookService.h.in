@@ -14,7 +14,9 @@ class BookService
         ~BookService();
         void AddBook(const Book& book);
         Book* SearchBook(std::string title, std::string author);
+        Book* SearchBookByIsbn(std::string isbn);
         Book* SearchBookByTreeDataStructure(std::string title, std::string author);
+        string DeleteBook(Book* book);
         void ModifyBook(Book book);
         bool ValidateBook(Book* book);
         void PrintBooks();

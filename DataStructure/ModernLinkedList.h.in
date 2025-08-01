@@ -15,6 +15,7 @@ class ModernLinkedList: public LinkedList<Data> {
         vector<Data> GetAll() override;
         Data* firstOrDefault(function<bool (Data data)> func) override;
         void ForEach(function<void (Data& data)> func) override;
+        void RemoveAt(Data* data) override;
 };
 
 template <typename Data> 
@@ -56,6 +57,17 @@ Data *ModernLinkedList<Data>::firstOrDefault(function<bool(Data data)> func)
         }
     }
     return nullptr;
+}
+template <typename Data>
+void ModernLinkedList<Data>::RemoveAt(Data *data)
+{
+    // auto it = find(dataList.begin(), dataList.end(), *data);
+    // if(it != dataList->end()){
+    //     dataList->erase(it);
+    // }
+    if(data != dataList->end()){
+        dataList->erase(data);
+    }
 }
 #endif
 
